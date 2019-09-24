@@ -1,0 +1,9 @@
+.git
+.vagrant
+.gitignore
+__pycache__
+LICENSE
+README.md
+Vagrantfile
+docker-compose.yml
+bootstrap

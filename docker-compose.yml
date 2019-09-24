@@ -1,0 +1,57 @@
+# docker-compose.yml
+
+version: '3'
+
+services:
+  flask:
+    image: webapp-flask
+    build:
+      context: .
+      dockerfile: ./resources/utils/dockerfiles/flask.Dockerfile
+    volumes:
+      - ./app:/app
+    depends_on:
+      - mysql
+      
+  nginx:    
+    image: rproxy-nginx
+    build:
+      context: .
+      dockerfile: ./resources/utils/dockerfiles/nginx.Dockerfile
+    ports:
+      - 8989:80
+    depends_on:
+      - flask
+  
+  # postgres:
+  #   image: db-postgres
+  #   build:
+  #     context: .
+  #     dockerfile: ./resources/utils/dockerfiles/postgres.Dockerfile
+  #   ports:
+  #     - 5432:5432
+  #   environment:
+  #     - PGDATA=/var/lib/postgresql/flaskdata
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #   volumes:
+  #     - ./data/postgresql:/var/lib/postgresql/flaskdata
+    
+  mysql:
+    user: "1000:50"
+    image: db-mysql
+    domainname: mysqldb.data
+    hostname: mysqldb
+    build:
+      context: .
+      dockerfile: ./resources/utils/dockerfiles/mysql.Dockerfile
+    ports:
+      - 13306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret#42
+      - MYSQL_DATABASE=dsdb
+      - MYSQL_USER=dsapp
+      - MYSQL_PASSWORD=test123
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    

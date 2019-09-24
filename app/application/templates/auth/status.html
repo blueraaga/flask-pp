@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}User status{% endblock %}
+
+{% block header %}
+<div class="row">
+    <div class="col-sm">
+      <h1>Status Page</h1>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm">
+    {% if current_user.is_authenticated %}
+      <p>You are logged in.</p>
+      <p>Click <a href="{{ url_for('auth_bp.details') }}">here</a> to check the deails, or <a href="{{ url_for('auth_bp.logout') }}">here</a> to logout</p>
+    {% else %}
+      <p>You are not logged in</p>
+      <p>Click <a href="{{ url_for('auth_bp.signup') }}">here</a> to sign up, or <a href="{{ url_for('auth_bp.login') }}">here</a> to login</p>
+    {% endif %}  
+  </div>
+</div>
+{% endblock %}
