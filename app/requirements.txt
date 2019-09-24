@@ -12,6 +12,7 @@ cryptography==2.3
 Flask==1.1.1
 Flask-Login==0.4.1
 Flask-SQLAlchemy==2.4.0
+gripcontrol==3.3.1
 httplib2==0.9.2
 hyperlink==17.3.1
 idna==2.6
