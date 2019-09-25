@@ -2,11 +2,7 @@
 .vagrant
 .DS_Store
 __pycache__
-fl3
-fltm
-drc.sh
 application.db
-data/mysql/*
-data/postgresql/*
 !.gitignore
 griplib
+resources/utils/scripts/
