@@ -38,6 +38,12 @@ Vagrant.configure("2") do |config|
     config.vm.network "forwarded_port", guest: 8989, host: 9999
     # uWSGI port
     config.vm.network "forwarded_port", guest: 5000, host: 5005
+    config.vm.network "forwarded_port", guest: 7999, host: 7999
+    config.vm.network "forwarded_port", guest: 5560, host: 5560
+    config.vm.network "forwarded_port", guest: 5561, host: 5561
+    config.vm.network "forwarded_port", guest: 5562, host: 5562
+    config.vm.network "forwarded_port", guest: 5563, host: 5563
+
   
     # Create a private network, which allows host-only access to the machine
     # using a specific IP. Host accessible with last octed as 1. 

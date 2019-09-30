@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}App Home{% endblock %}
+
+{% block header %}
+<div class="row">
+    <div class="col-sm">
+      <h1>Stream View Page</h1>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm">
+    <p>Stream view page</p>
+  </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p>Recieved message appear below</p>
+    </div>
+    <div class="col-sm-12" id="stream-message">
+        <p>Demo text</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block bodyjs %}
+<script src="{{ url_for('static', filename='js/stream/stream-manager.js') }}"></script>
+{% endblock %}

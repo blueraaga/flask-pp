@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}App Home{% endblock %}
+
+{% block header %}
+<div class="row">
+    <div class="col-sm">
+      <h1>Stream Send Page</h1>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm">
+    <p>Stream send page</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <form class="form-inline" method="post" action="{{ url_for('stream_bp.send') }}">
+      <div class="form-group mb-2">
+        <label for="staticComm" class="sr-only">Email</label>
+        <input type="text" readonly class="form-control-plaintext" id="staticComm" value="Type a message to send">
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="inputMessage" class="sr-only">Message</label>
+        <input type="text" class="form-control" id="inputMessage" name="message" placeholder="Message">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2">Send</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

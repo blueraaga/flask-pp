@@ -58,10 +58,12 @@ def create_app(test_config=None):
         from . import routes
         from . import auth
         from . import home
+        from . import stream
 
         # Register blueprints
         app.register_blueprint(auth.auth_bp)
         app.register_blueprint(home.home_bp)
+        app.register_blueprint(stream.stream_bp)
         
         db.create_all()
 
